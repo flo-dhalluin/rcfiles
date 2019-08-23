@@ -5,8 +5,8 @@ Xft.hintstyle: hintfull
 
 /* Couleurs Tango */
 URxvt.depth: 32
-URxvt.foreground: #C8C8C8
-URxvt.background: rgba:3322/3322/3322/eeee
+URxvt.foreground: #D8D8D8
+URxvt.background: rgba:1122/1122/1122/eeee
 URxvt.color0:     #2E3436
 URxvt.color1:     #CC0000
 URxvt.color2:     #4E9A06
@@ -25,5 +25,5 @@ URxvt.color14:    #34E2E2
 URxvt.color15:    #EEEEEC
 
 URxvt.scrollBar: false
-URxvt.font: xft:Inconsolata:size=10
+URxvt.font: xft:Inconsolata:size=12, xft:DejaVu Sans Mono:size=12
 URxvt.loginShell:true
