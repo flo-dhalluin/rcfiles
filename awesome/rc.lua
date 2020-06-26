@@ -627,14 +627,14 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 
--- autorunApps =
---    {
---       "nm-applet",
---       "/home/flo/Applications/CozyDrive-3.11.1-x86_64.AppImage",
---       "redshift-gtk",
---       "xfce4-power-manager",
---    }
+autorunApps =
+   {
+      "nm-applet",
+      "redshift-gtk",
+      "xfce4-power-manager",
+      "nextcloud",
+   }
 
--- for app = 1, #autorunApps do
---    awful.util.spawn(autorunApps[app])
--- end
+for app = 1, #autorunApps do
+   awful.util.spawn(autorunApps[app])
+end
