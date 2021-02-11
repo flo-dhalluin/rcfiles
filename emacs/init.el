@@ -12,7 +12,7 @@
 ;; MELPA
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -20,17 +20,19 @@
 (setq package-selected-packages
       '(jedi
 	clojure-mode
-	cider
 	paredit-mode
-	company
 	markdown-mode
 	rust-mode
-	flycheck
-	flycheck-rust
-	racer))
+	cargo-mode
+	lsp-mode
+	lsp-ui
+	company))
 
 (package-install-selected-packages)	
 
+(require 'lsp-mode)
+
+(add-hook 'rust-mode-hook 'lsp)
 ;; -- python -- 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
@@ -43,15 +45,10 @@
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
 
-;; flycheck
-(setq flycheck-global-modes
-      '(rust-mode))
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 
 ;; theming : 
 ;; inconsolata
-(set-default-font "Inconsolata-12")
+(set-frame-font "Inconsolata-12")
 
 ;; default dark-tango theme
 (custom-set-variables
@@ -59,10 +56,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
-   (quote
-    (elixir-mode flymake-rust rust-mode lua-mode org-present presentation yaml-mode paredit clojure-mode cider jedi markdown-mode))))
+   '(company nix-mode elixir-mode flymake-rust rust-mode lua-mode org-present presentation yaml-mode paredit clojure-mode cider jedi markdown-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
