@@ -26,13 +26,18 @@
 	cargo-mode
 	lsp-mode
 	lsp-ui
+	direnv
+	typescript-mode
 	company))
 
 (package-install-selected-packages)	
 
 (require 'lsp-mode)
 
+(add-hook 'prog-mode-hook 'direnv-mode)
+
 (add-hook 'rust-mode-hook 'lsp)
+(add-hook 'typescript-mode-hook 'lsp)
 ;; -- python -- 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
@@ -57,8 +62,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tango-dark))
+ '(org-agenda-files '("~/Nextcloud/Documents/org/main.org"))
  '(package-selected-packages
-   '(company nix-mode elixir-mode flymake-rust rust-mode lua-mode org-present presentation yaml-mode paredit clojure-mode cider jedi markdown-mode)))
+   '(direnv typescript-mode json-mode company nix-mode elixir-mode flymake-rust rust-mode lua-mode org-present presentation yaml-mode paredit clojure-mode cider jedi markdown-mode))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
