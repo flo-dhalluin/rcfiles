@@ -45,6 +45,8 @@
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
+(use-package yaml-mode
+  :ensure t)
 
 (use-package direnv
   :config (direnv-mode))
@@ -56,12 +58,18 @@
   :mode "\\.ts\\'"
   :hook (typescript-mode .lsp-deferred))
 
+(setq js-indent-level 2)
+
 (use-package pyvenv
   :config (pyvenv-mode 1))
 
 (use-package python-mode
   :ensure t
   :hook (python-mode . lsp-deferred))
+
+(use-package presentation)
+
+(use-package toml)
 
 (use-package company
   :after lsp-mode
@@ -74,8 +82,11 @@
    (company-minimum-prefix-length 1)
    (company-idle-delay 0.0))
 
-
 ;; do not pollute this one with custom stuff.. 
 (setq custom-file "~/.emacs-custom")
 (if (file-exists-p custom-file)
     (load custom-file))
+
+(setq make-backup-files nil)
+
+(global-set-key (kbd "C-c c") #'org-capture)
